@@ -1,0 +1,45 @@
+<div class="row">
+  
+  <div class="col-lg-3">
+
+  <app-bookcategory></app-bookcategory>
+
+  </div>
+  <!-- /.col-lg-3 -->
+
+  <div class="col-lg-9">
+     
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let book of books">
+          <div class="card h-100">
+            <a routerLink="/books/{{book.id}}" ><img class="card-img-top img-responsive"  [src]="book.imageUrl" height="50" ></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a routerLink="/books/{{book.id}}">{{book.name}}</a>
+              </h4>
+              <h5>{{book.unitPrice}}</h5>
+              <p class="card-text text-truncate">{{book.description}}</p>
+            </div>
+            <div class="card-footer">
+              <button class= "btn btn-primary float-right" (click)="addToCart(book)" >Add Cart</button>
+            </div>
+          </div >
+          
+        </div>
+        <div *ngIf="books?.length==0" class="col-md-12 alert alert-success mt-4">
+          No books found
+        </div>
+  </div>
+    
+
+  
+    
+    
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->
+
+
